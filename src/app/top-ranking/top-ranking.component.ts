@@ -15,15 +15,14 @@ export class TopRankingComponent implements OnInit {
   topThree: Player[] = [];
   myControl = new FormControl();
   filteredOptions: Observable<Player[]> = new Observable();
+  selectedPlayer: Player | undefined = undefined;
 
   constructor(private playerService: PlayerService) { }
 
   ngOnInit(): void {
     this.playerService.players.subscribe((players: Player[]) => {
       this.players = players;
-      this.topThree = players;
-      console.log(players);
-      this.topThree.sort(function (a, b) {
+      this.topThree = this.players.sort(function (a, b) {
         if (a.points < b.points) return 1;
         if (a.points > b.points) return -1;
         return 0;
@@ -36,7 +35,12 @@ export class TopRankingComponent implements OnInit {
       map(value => (typeof value === 'string' ? value : value.name)),
       map(name => (name ? this._filter(name) : this.players.slice())),
     );
+
+    this.myControl.valueChanges.subscribe((value) => {
+      this.selectedPlayer = this.players.find(p => p.name == value)
+    })
   }
+
   private _filter(name: string): Player[] {
     const filterValue = name.toLowerCase();
 

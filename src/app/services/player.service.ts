@@ -7,13 +7,12 @@ import { Player } from '../models/player.model';
 })
 export class PlayerService {
   private playerUrl = 'api/tennisPlayers/';
-  players: Subject<Player[]> = new Subject;
+  players: Observable<Player[]> = new Subject;
   constructor(private http: HttpClient) { }
 
   get(): void {
-    this.http.get<Player[]>(this.playerUrl).subscribe((palyers: Player[]) => {
-      this.players.next(palyers);
-    })
+    console.log("get");
+    this.players = this.http.get<Player[]>(this.playerUrl)
   }
 
   getById(id: number): Observable<Player> {
@@ -22,7 +21,7 @@ export class PlayerService {
 
   create(player: Player): void {
     player.id = null;
-    this.http.post<Player>(this.playerUrl, player).subscribe((player: Player) => {
+    this.http.post<Player>(this.playerUrl, player).subscribe(() => {
       this.get();
     })
   }
