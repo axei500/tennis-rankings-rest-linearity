@@ -20,7 +20,6 @@ export class PlayerDetailsComponent implements OnInit {
   points = new FormControl(0, [Validators.required]);
   tournamentsPlayed = new FormControl(0, [Validators.required]);
 
-
   constructor(private playerService: PlayerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

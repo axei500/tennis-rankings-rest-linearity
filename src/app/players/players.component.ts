@@ -39,4 +39,8 @@ export class PlayersComponent implements OnInit {
     this.router.navigateByUrl('player/' + id)
   }
 
+  delete(id: number): void {
+    this.playerService.delete(id);
+  }
+
 }

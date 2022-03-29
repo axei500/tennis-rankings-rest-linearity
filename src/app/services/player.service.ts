@@ -34,6 +34,8 @@ export class PlayerService {
   }
 
   delete(id: number): void {
-    this.http.delete(this.playerUrl + id);
+    this.http.delete(this.playerUrl + id).subscribe(() => {
+      this.get();
+    });
   }
 }
