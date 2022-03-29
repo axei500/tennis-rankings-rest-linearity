@@ -28,6 +28,7 @@ export class PlayersComponent implements OnInit {
     this.playerService.players.subscribe((players: Player[]) => {
       this.players = players;
       this.tableData.data = players
+      console.log(players)
     })
   }
 
@@ -41,6 +42,7 @@ export class PlayersComponent implements OnInit {
 
   delete(id: number): void {
     this.playerService.delete(id);
+    this.ngOnInit();
   }
 
 }
