@@ -40,6 +40,10 @@ export class PlayersComponent implements OnInit {
     this.router.navigateByUrl('player/' + id)
   }
 
+  onCreate(): void {
+    this.ngOnInit();
+  }
+
   delete(id: number): void {
     this.playerService.delete(id);
     this.ngOnInit();

@@ -3,7 +3,7 @@
   <button class="m-2 fab" mat-raised-button color="primary" aria-label="ShowHide AddForm" (click)="hideForm = !hideForm">
     ShowHide AddForm
   </button>
-  <app-player-details *ngIf="hideForm" [newForm]="true"></app-player-details>
+  <app-player-details *ngIf="hideForm" [newForm]="true" (onCreate)="onCreate()"></app-player-details>
   <!-- Mat Table -->
   <div class="mat-elevation-z8 d-none d-md-block">
     <table mat-table [dataSource]="tableData" multiTemplateDataRows style="width: 100%;">

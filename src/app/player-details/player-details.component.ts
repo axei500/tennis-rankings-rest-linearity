@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Player } from '../models/player.model';
@@ -12,6 +12,10 @@ import { PlayerService } from '../services/player.service';
 export class PlayerDetailsComponent implements OnInit {
   @Input()
   newForm: boolean = false
+
+  @Output()
+  onCreate: EventEmitter<any> = new EventEmitter<any>();
+
 
   id = new FormControl("", [Validators.required]);
   name = new FormControl("", [Validators.required]);
@@ -41,6 +45,7 @@ export class PlayerDetailsComponent implements OnInit {
   addPlayer(): void {
     if (this.name.valid && this.country.valid && this.age.valid && this.points.valid && this.tournamentsPlayed.valid) {
       this.playerService.create(new Player(0, this.name.value, this.country.value, this.age.value, this.points.value, this.tournamentsPlayed.value))
+      this.onCreate.emit();
     }
 
   }
