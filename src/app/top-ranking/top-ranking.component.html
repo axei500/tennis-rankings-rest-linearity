@@ -1,15 +1,13 @@
 <div class="container-fluid m-5">
   <h1>Top Players</h1>
-  <p *ngFor="let item of topThree">{{item.name}}</p>
+  <ol>
+    <li *ngFor="let item of topThree">{{item.name}}</li>
+  </ol>
   <form class="example-form">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Search</mat-label>
-      <input type="text"
-             placeholder="Pick one"
-             aria-label="Search"
-             matInput
-             [formControl]="myControl"
-             [matAutocomplete]="auto" >
+      <input type="text" placeholder="Pick one" aria-label="Search" matInput [formControl]="myControl"
+        [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
           {{option.name}}

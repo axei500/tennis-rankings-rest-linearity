@@ -57,4 +57,8 @@ export class PlayerDetailsComponent implements OnInit {
     }
   }
 
+  back(): void {
+    this.router.navigateByUrl('players')
+  }
+
 }

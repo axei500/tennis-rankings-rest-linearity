@@ -1,6 +1,7 @@
 <h1 class="text-center">Players</h1>
 <div class="container-fluid">
-  <button class="m-2 fab" mat-raised-button color="primary" aria-label="ShowHide AddForm" (click)="hideForm = !hideForm">
+  <button class="m-2 fab" mat-raised-button color="primary" aria-label="ShowHide AddForm"
+    (click)="hideForm = !hideForm">
     ShowHide AddForm
   </button>
   <app-player-details *ngIf="hideForm" [newForm]="true" (onCreate)="onCreate()"></app-player-details>
@@ -60,14 +61,18 @@
       *ngFor="let player of players | slice: (bootstrapPaginationSettings.page - 1) * bootstrapPaginationSettings.pageSize : bootstrapPaginationSettings.page * bootstrapPaginationSettings.pageSize">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{player.name}}
+          {{player.id}} {{player.name}} {{player.age}} Years old
         </mat-panel-title>
         <mat-action-row>
-          <button mat-mini-fab aria-label="Edit player">
+          <button mat-mini-fab aria-label="Edit player" (click)="edit(player.id!)">
             <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-mini-fab aria-label="Delete player" color="warn" (click)="delete(player.id!)">
+            <mat-icon>delete</mat-icon>
           </button>
         </mat-action-row>
       </mat-expansion-panel-header>
+      Country : {{player.country}}, Points : {{player.points}}, Played : {{player.tournamentsPlayed}}
     </mat-expansion-panel>
     <ngb-pagination [(page)]="bootstrapPaginationSettings.page" [pageSize]="bootstrapPaginationSettings.pageSize"
       [collectionSize]="players.length" class="mt-3 float-end"></ngb-pagination>

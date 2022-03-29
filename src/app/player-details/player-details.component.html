@@ -41,7 +41,7 @@
     </button>
   </div>
   <div *ngIf="!newForm">
-    <button class="m-2 fab" mat-raised-button color="primary" aria-label="Back" [routerLink]="'players'">
+    <button class="m-2 fab" mat-raised-button color="primary" aria-label="Back" (click)="back()">
       Back
     </button>
     <button class="m-2 fab" mat-raised-button color="primary" aria-label="Save player" (click)="savePlayer()">
