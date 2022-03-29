@@ -1,9 +1,9 @@
 <h1 class="text-center">Players</h1>
 <div class="container-fluid">
-  <button class="m-2 fab" mat-button color="primary" aria-label="ShowHide AddForm">
+  <button class="m-2 fab" mat-raised-button color="primary" aria-label="ShowHide AddForm" (click)="hideForm = !hideForm">
     ShowHide AddForm
   </button>
-  <app-player-details></app-player-details>
+  <app-player-details *ngIf="hideForm" [newForm]="true"></app-player-details>
   <!-- Mat Table -->
   <div class="mat-elevation-z8 d-none d-md-block">
     <table mat-table [dataSource]="tableData" multiTemplateDataRows style="width: 100%;">
@@ -35,7 +35,7 @@
       <ng-container matColumnDef="Actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let player">
-          <button mat-mini-fab aria-label="Edit player">
+          <button mat-mini-fab aria-label="Edit player" (click)="edit(player.id)">
             <mat-icon>edit</mat-icon>
           </button>
         </td>

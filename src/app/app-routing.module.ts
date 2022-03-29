@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: TopRankingComponent },
   { path: 'top', component: TopRankingComponent },
   { path: 'players', component: PlayersComponent },
-  { path: 'qr-code/:playerId', component: PlayerDetailsComponent },
+  { path: 'player/:playerId', component: PlayerDetailsComponent },
 ];
 
 @NgModule({

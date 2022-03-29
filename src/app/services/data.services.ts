@@ -9,7 +9,7 @@ export class DataService implements InMemoryDbService {
     return {
       tennisPlayers: [
         {
-          id: "1",
+          id: 1,
           name: "Andy Murray",
           country: "United States",
           age: 29,
@@ -17,7 +17,7 @@ export class DataService implements InMemoryDbService {
           tournamentsPlayed: 17,
         },
         {
-          id: "2",
+          id: 2,
           name: "Novak Djokovic",
           country: "Serbia",
           age: 29,
@@ -25,7 +25,7 @@ export class DataService implements InMemoryDbService {
           tournamentsPlayed: 16,
         },
         {
-          id: "3",
+          id: 3,
           name: "Stan Waarnkas",
           country: "Suisse",
           age: 31,
@@ -33,7 +33,7 @@ export class DataService implements InMemoryDbService {
           tournamentsPlayed: 19,
         },
         {
-          id: "4",
+          id: 4,
           name: "Mios Raonic",
           country: "Canada",
           age: 26,
@@ -41,7 +41,7 @@ export class DataService implements InMemoryDbService {
           tournamentsPlayed: 20,
         },
         {
-          id: "5",
+          id: 5,
           name: "Kei Nishikon",
           country: "Japan",
           age: 27,

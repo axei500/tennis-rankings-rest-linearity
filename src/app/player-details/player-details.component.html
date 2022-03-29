@@ -1,7 +1,51 @@
-<p>player-details works!</p>
-<div>
-  <mat-form-field appearance="fill">
-    <mat-label>Naam allergie</mat-label>
-    <input matInput placeholder="" [formControl]="name" required>
-  </mat-form-field>
+<div class="cotainer-fluid m-5">
+  <div *ngIf="!newForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="" [formControl]="id" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="" [formControl]="name" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Country</mat-label>
+      <input matInput placeholder="" [formControl]="country" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Age</mat-label>
+      <input matInput placeholder="" [formControl]="age" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Points</mat-label>
+      <input matInput placeholder="" [formControl]="points" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Tournaments Played</mat-label>
+      <input matInput placeholder="" [formControl]="tournamentsPlayed" required>
+    </mat-form-field>
+  </div>
+  <div *ngIf="newForm">
+    <button class="m-2 fab" mat-raised-button color="primary" aria-label="Create player" (click)="addPlayer()">
+      Add
+    </button>
+  </div>
+  <div *ngIf="!newForm">
+    <button class="m-2 fab" mat-raised-button color="primary" aria-label="Back" [routerLink]="'players'">
+      Back
+    </button>
+    <button class="m-2 fab" mat-raised-button color="primary" aria-label="Save player" (click)="savePlayer()">
+      Save
+    </button>
+  </div>
 </div>
