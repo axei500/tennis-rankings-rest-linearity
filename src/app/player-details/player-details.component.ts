@@ -23,17 +23,19 @@ export class PlayerDetailsComponent implements OnInit {
   constructor(private playerService: PlayerService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.id.setValue(+params['playerId']);
-      this.playerService.getById(this.id.value).subscribe((player: Player) => {
-        this.name.setValue(player.name)
-        this.country.setValue(player.country)
-        this.age.setValue(player.age)
-        this.points.setValue(player.points)
-        this.tournamentsPlayed.setValue(player.tournamentsPlayed)
-        this.id.disable();
+    if (!this.newForm) {
+      this.route.params.subscribe((params: Params) => {
+        this.id.setValue(+params['playerId']);
+        this.playerService.getById(this.id.value).subscribe((player: Player) => {
+          this.name.setValue(player.name)
+          this.country.setValue(player.country)
+          this.age.setValue(player.age)
+          this.points.setValue(player.points)
+          this.tournamentsPlayed.setValue(player.tournamentsPlayed)
+          this.id.disable();
+        });
       });
-    });
+    }
   }
 
   addPlayer(): void {

@@ -1,1 +1,15 @@
-<p>top-ranking works!</p>
+<div class="container-fluid m-5">
+  <h1>Top Players</h1>
+  <p *ngFor="let item of topThree">{{item.name}}</p>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
